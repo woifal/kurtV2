@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from './hero-detail.component';
+import { LoginComponent } from './login.component';
 
 const appRoutes: Routes = [
   {
@@ -25,6 +26,19 @@ const appRoutes: Routes = [
         component: HeroDetailComponent,
         data: {
           title: 'Hero detail'
+        }
+      }
+    ]
+  }
+  ,{
+    path: 'login',
+    children: [
+      {
+        path: '',
+        component: LoginComponent,
+        data: {
+          title: 'Login',
+          root: true
         }
       }
     ]

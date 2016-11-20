@@ -8,6 +8,9 @@ import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from './hero-detail.component';
 import { routing, appRoutingProviders } from './app.routing';
 
+import { LoginComponent } from './login.component';
+
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { routing, appRoutingProviders } from './app.routing';
     HeroDetailComponent,
     PolymerElement('paper-input'),
     PolymerElement('vaadin-date-picker')
+	,LoginComponent
   ],
   providers: [
     HeroService,
