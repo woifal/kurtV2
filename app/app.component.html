@@ -1,0 +1,111 @@
+<paper-drawer-panel>
+	<!-- 
+		Slide-in menu
+	-->
+	<div drawer style="border-right: 0px solid #3f51b5; background-color: #6e78b3;">
+		<paper-menu>
+			<!-- Home button -->
+			<a routerLink="/heroes" style="color: white;" arouterLinkActive="active" tabindex="-1">
+			<paper-item>
+				<paper-button>
+					<iron-icon icon="home"></iron-icon>
+					HOME
+				</paper-button>
+			</paper-item>
+			</a>
+			<!-- Login button -->
+			<a routerLink="/login" style="color: white;" arouterLinkActive="active" tabindex="-1">
+				<paper-item>
+					<paper-button>
+						<iron-icon icon="home"></iron-icon>
+						Login
+					</paper-button>
+				</paper-item>
+			</a>
+			<paper-submenu>
+				<paper-item class="menu-trigger">Topics</paper-item>
+				<paper-menu class="menu-content">
+					<a routerLink="/heroes" routerLinkActive="active" tabindex="-1">
+						<paper-item raised>All Heroes</paper-item>
+					</a>
+					<paper-item>Topic 1</paper-item>
+					<paper-item>Topic 2</paper-item>
+					<paper-item>Topic 3</paper-item>
+				</paper-menu>
+			</paper-submenu>
+			<paper-submenu>
+				<paper-item class="menu-trigger">Faves</paper-item>
+				<paper-menu class="menu-content">
+					<paper-item>Fave 1</paper-item>
+					<paper-item>Fave 2</paper-item>
+				</paper-menu>
+			</paper-submenu>
+			<paper-submenu disabled>
+				<paper-item class="menu-trigger">Unavailable</paper-item>
+				<paper-menu class="menu-content">
+					<paper-item>Disabled 1</paper-item>
+					<paper-item>Disabled 2</paper-item>
+				</paper-menu>
+			</paper-submenu>
+		</paper-menu>
+	</div>
+	<!-- 
+		Content area
+	-->
+	<div main> 
+		<app-header-layout has-scrolling-region>
+			<!-- 
+				Page header 
+			-->
+			<app-header fixed>
+				<app-toolbar [class.raised]="isInChildView" style="border: 0px solid red; background-image: url('app/header_logo.png'); background-size: 100px; background-repeat: no-repeat; background-position: center center; height: 30px;">
+				</app-toolbar>
+				<app-toolbar [class.raised]="isInChildView" style="aheight: 40px;">
+					<!-- Page title -->
+					 <div style="margin-right: auto; margin-left: auto;" title spacer>{{title}}</div>
+					<!-- "back" navigation - if in childView (=> isInChildView) -->
+					<paper-icon-button 
+						icon="arrow-back" 
+						*ngIf="isInChildView" 
+						(click)="goBack()"
+					></paper-icon-button>
+					<!-- paper-drawer-toggle => trigger slide-in menu.. -->
+					<paper-icon-button 
+						icon="menu" 
+						paper-drawer-toggle
+					></paper-icon-button>
+					
+				</app-toolbar>
+			</app-header>
+			<!-- 
+				General content elements..
+			-->
+<!--
+			<paper-input 
+				value="{{title}}" 
+				aalways-float-label 
+				label="Floating label"
+			></paper-input>
+			<paper-input 
+				label="username"
+			>
+				<iron-icon 
+					icon="mail" 
+					prefix
+				></iron-icon>
+				<div prefix>asdf.</div>
+				<div suffix>@email.com</div>
+			</paper-input>
+			
+			<paper-button raised class="indigo">
+				<iron-icon icon="home"></iron-icon>
+				Some button
+			</paper-button>
+-->
+			<!-- 
+				Current page content
+			-->
+			<router-outlet></router-outlet>
+		</app-header-layout>
+	</div>
+</paper-drawer-panel>
